@@ -548,13 +548,13 @@ echo "<input type='hidden' name='userId' id='userId' value='" . $_SESSION['id'] 
 
                     if (data.from == "Me") {
                         styleBox =
-                            'relative max-w-fit px-4 py-2 text-gray-700 rounded-xl shadow bg-red-200 text-right';
+                            'relative max-w-xl min-w-[17%] px-4 py-2 text-gray-700 rounded-xl shadow bg-red-200 text-right';
                         styleBox2 = 'justify-end';
                         styleBox3 = 'text-right';
                         styleBox4 = 'ml-[150px]';
                     } else {
                         styleBox =
-                            'relative max-w-fit px-4 py-2 text-gray-700 bg-green-200 rounded-xl shadow';
+                            'relative max-w-xl min-w-[17%] px-4 py-2 text-gray-700 bg-green-200 rounded-xl shadow';
                         styleBox2 = 'justify-start';
                         styleBox3 = 'text-left';
                         styleBox4 = 'mr-[150px]';
