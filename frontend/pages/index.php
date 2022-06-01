@@ -7,7 +7,7 @@ $objUser = new Users;
 $objUser->setEmail($_SESSION['user']);
 $orang = $objUser->getUserByEmail();
 
-if($_SESSION['role'] == 2){
+if ($_SESSION['role'] == 2) {
     header("location: mentor_approve.php");
 }
 
@@ -26,6 +26,7 @@ if (!isset($_SESSION['user'])) {
 
 
 // mendpatkan data user mentor
+
 $mentors = $objUser->getUserMentor();
 
 
@@ -55,7 +56,8 @@ $user = $objUser->getUserByEmail();
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.2/dist/flowbite.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 
     <script>
@@ -75,7 +77,7 @@ $user = $objUser->getUserByEmail();
         }
     }
     </script>
-     <style>
+    <style>
     .sidebar #username_logo {
         display: none;
     }
@@ -203,7 +205,7 @@ $user = $objUser->getUserByEmail();
 </head>
 
 <body>
-<div class="responsive-top p-5">
+    <div class="responsive-top p-5">
         <div class="container flex flex-column justify-between mt-4 mb-4">
             <img class="w-[280px] logo-smk1" src="../src/code.svg" alt="Logo SMK">
             <img src="Img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer" id="btnToggle2">
@@ -314,7 +316,7 @@ $user = $objUser->getUserByEmail();
 
             <!-- Breadcrumb -->
             <div>
-            <ul class="flex items-center gap-x-4">
+                <ul class="flex items-center gap-x-4">
                     <li>
                         <a class="text-light-green" href="#">Home</a>
                     </li>
@@ -328,13 +330,13 @@ $user = $objUser->getUserByEmail();
                         <span class="text-light-green">/</span>
                     </li>
                     <li>
-                        <a class="text-light-green font-semibold" href="">Booking</a>
+                        <a class="text-light-green font-semibold" href="#">Booking</a>
                     </li>
                 </ul>
             </div>
-             <div class="bg-white w-full h-[50px] flex content-center px-10 rounded-xl">
+            <div class="bg-white w-full h-[50px] flex content-center px-10 rounded-xl">
                 <ul class="flex items-center gap-x-8">
-                    <a href="http://localhost/websocket/frontend/pages/daftarRequest.php">
+                    <a href="daftarRequest.php">
                         <li
                             class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
                             <p>Status</p>
@@ -350,48 +352,47 @@ $user = $objUser->getUserByEmail();
 
                 </ul>
             </div>
-
             <?php
-                
-                if( isset($_GET['message']) and ($_GET['message'] == 'success')){
-                    echo '<div class="p-4 mb-4 text-md text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+
+            if (isset($_GET['message']) and ($_GET['message'] == 'success')) {
+                echo '<div class="p-4 mb-4 text-md text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
                             <span class="font-medium">Berhasil Mengajukan Bimbingan
                         </div>';
-                } elseif(isset($_GET['message']) and ($_GET['message'] == 'failed')){
-                    echo '<div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            } elseif (isset($_GET['message']) and ($_GET['message'] == 'failed')) {
+                echo '<div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
                     <span class="font-medium">Gagal Mengajukan Bimbingan
                   </div>';
-                } else {
-                    
-                }
+            } else {
+            }
 
             ?>
 
-            <div class="grid justify-items-center gap-4 gap-y-[50px] grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 w-auto">
+            <div
+                class="grid justify-items-center gap-4 gap-y-[50px] grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 w-auto">
 
-      
-                
+
+
 
                 <!-- card bimbingan -->
-                <?php foreach($lectures as $mentor){ ?>
+                <?php foreach ($lectures as $mentor) { ?>
 
-                    <div class="bg-white h-48 w-full sm:w-4/5 rounded-xl shadow-lg text-center" onclick='bukaModal(<?= $mentor['user_id'] ?>)'
-                        data-modal-toggle="defaultModal">
-                        <div class="bg-[url('../src/coding2.jpg')] h-32 w-auto rounded-t-xl overflow-hidden bg-cover">
-                            <div class="bg-[#DDB07F] w-full h-full bg-opacity-60">
-                                <div class="grid place-content-center">
-                                    <div class="p-4">
-                                        <img src="../src/edwina.png" alt="..."
-                                            class="shadow-lg rounded-full align-middle w-24 h-24 border-none" />
-                                    </div>
+                <div class="bg-white h-48 w-full sm:w-4/5 rounded-xl shadow-lg text-center"
+                    onclick='bukaModal(<?= $mentor['user_id'] ?>)' data-modal-toggle="defaultModal">
+                    <div class="bg-[url('../src/coding2.jpg')] h-32 w-auto rounded-t-xl overflow-hidden bg-cover">
+                        <div class="bg-[#DDB07F] w-full h-full bg-opacity-60">
+                            <div class="grid place-content-center">
+                                <div class="p-4">
+                                    <img src="../src/edwina.png" alt="..."
+                                        class="shadow-lg rounded-full align-middle w-24 h-24 border-none" />
                                 </div>
                             </div>
                         </div>
-                        <h3 class="ml-5 text-left font-bold text-[#1E3F41]"><?php echo $mentor['user_username'] ?></h3>
-                    <h3 class="ml-5 text-left text-[#C4C4C4]">Mentor</h3>
                     </div>
+                    <h3 class="ml-5 text-left font-bold text-[#1E3F41]"><?php echo $mentor['user_username'] ?></h3>
+                    <h3 class="ml-5 text-left text-[#C4C4C4]">Mentor</h3>
+                </div>
 
-                    
+
                 <?php } ?>
 
 
@@ -419,14 +420,15 @@ $user = $objUser->getUserByEmail();
                             </button>
                         </div>
                         <!-- Modal body -->
-                        <div class="relative bg-white rounded-lg dark:bg-gray-700">
-                            <form class="mt-4 px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" action="../../action/saveRoom.php" method="post">
+                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                            <form class="mt-4 px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8"
+                                action="../../action/saveRoom.php" method="post">
                                 <h3 class="text-xl font-medium text-gray-900 text-center dark:text-white">Book Your
                                     Appointment</h3>
 
                                 <!-- Mentor -->
                                 <div class="flex gap-x-4 py-1 px-10 rounded-xl" id="insert">
-                                    
+
                                     <img class="w-14" src="./Img/icons/default_profile.svg" alt="Profile Image">
                                     <div class="" id="infoUser">
                                         <p class="text-dark-green text-base font-semibold"></p>
@@ -437,15 +439,15 @@ $user = $objUser->getUserByEmail();
                                     <label for="text"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 after:content-['*'] after:ml-0.5 after:text-red-500">Nama
                                         Lengkap</label>
-                                    <input type="text" name="name" id="name" disabled
-                                        class="bg-gray-50 border border-gray-300 -mb-4 text-slate-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white "
+                                    <input type="text" name="name" id="name"
+                                        class="bg-gray-50 border border-gray-300 -mb-4 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                         placeholder="Nama Lengkap" value="<?= $_SESSION['user'] ?>" required>
                                 </div>
                                 <div>
                                     <label for="email"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300  after:content-['*'] after:ml-0.5 after:text-red-500">Email</label>
-                                        <input type="email" name="email" id="email" disabled
-                                        class="bg-gray-50 border border-gray-300 -mb-4 text-slate-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white invalid:text-red-600 invalid:focus:ring-red-600 invalid:focus:border-red-600 peer"
+                                    <input type="email" name="email" id="email"
+                                        class="bg-gray-50 border border-gray-300 -mb-4 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white invalid:text-red-600 invalid:focus:ring-red-600 invalid:focus:border-red-600 peer"
                                         placeholder="email@example.com" value="<?= $_SESSION['email'] ?>">
                                     <p class="mt-5 -mb-5 italic text-xs invisible peer-invalid:visible text-red-600">
                                         Format alamat email tidak valid.
@@ -456,8 +458,9 @@ $user = $objUser->getUserByEmail();
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 after:content-['*'] after:ml-0.5 after:text-red-500">Waktu</label>
                                     <div class="timepicker relative form-floating mb-3 w-full"
                                         id="input-toggle-timepicker" data-mdb-toggle-button="false">
-                                        <select name="time" id="time" class="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 -mb-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                
+                                        <select name="time" id="time"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 -mb-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
                                         </select>
                                         <!-- <input type="text" name="time" id="time"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 -mb-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -466,15 +469,16 @@ $user = $objUser->getUserByEmail();
                                 </div>
                                 <div>
                                     <!-- save student id -->
-                                    <input type="text" hidden name="studentId" id="student" value="<?= $_SESSION['id'] ?>">
+                                    <input type="text" hidden name="studentId" id="student"
+                                        value="<?= $_SESSION['id'] ?>">
 
                                     <!-- save lecture -->
                                     <input type="text" hidden name="lectureId" id="lecture" value="">
                                     <label for="text"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 after:content-['*'] after:ml-0.5 after:text-red-500">Topic</label>
                                     <textarea id="message" rows="4" name="topic"
-                                        class="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="Leave a comment..." required></textarea>
+                                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        placeholder="Leave a comment..."></textarea>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" name="submit" value="success"
@@ -513,49 +517,46 @@ $user = $objUser->getUserByEmail();
     </script>
 
     <script>
-        $('#date').click(function(){
-            
-            console.log($('#date').val())
-        })
+    $('#date').click(function() {
 
-        $('#time').click(function(){
-            
-            console.log($('#time').val())
-        })
+        console.log($('#date').val())
+    })
 
+    $('#time').click(function() {
 
+        console.log($('#time').val())
+    })
     </script>
 
     <script>
-        
-            function bukaModal(id){
-                $('#lecture').attr('value', id);
-                $.ajax({
-                    method: "POST",
-                    data: {
-                        user_id: id,
-                        send: true 
-                    },
-                    url: '../../action/requestRoom.php',
-                    success: function(data, status){
-                        let userData = JSON.parse(data);
-                        console.log(userData);
+    function bukaModal(id) {
+        $('#lecture').attr('value', id);
+        $.ajax({
+            method: "POST",
+            data: {
+                user_id: id,
+                send: true
+            },
+            url: '../../action/requestRoom.php',
+            success: function(data, status) {
+                let userData = JSON.parse(data);
+                console.log(userData);
 
-                        let info = '<p class="text-dark-green text-base font-semibold">' + userData.user.user_username + '</p> <p class="text-light-green">Mentor System Analyst</p>';
-                        let inputMentor = '<input type="text" value="'+ userData.user.user_id +'" name="id_mentor" hidden>';
-                        $('#infoUser').html(info);
-                        $('#infoUser').append(inputMentor);
+                let info = '<p class="text-dark-green text-base font-semibold">' + userData.user
+                    .user_username + '</p> <p class="text-light-green">Mentor System Analyst</p>';
+                let inputMentor = '<input type="text" value="' + userData.user.user_id +
+                    '" name="id_mentor" hidden>';
+                $('#infoUser').html(info);
+                $('#infoUser').append(inputMentor);
 
-                        $('#time').html('')
-                        userData.ava.forEach(e => $('#time').append(`<option value='` + e.start_time+ `' >` + e.start_time+ `</option>`)
-);
+                $('#time').html('')
+                userData.ava.forEach(e => $('#time').append(`<option value='` + e.start_time + `' >` + e
+                    .start_time + `</option>`));
 
 
-                    }
-                })
             }
-        
-
+        })
+    }
     </script>
 
 </body>

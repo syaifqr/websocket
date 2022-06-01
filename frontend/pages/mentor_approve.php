@@ -10,7 +10,7 @@ $objUser->setEmail($_SESSION['user']);
 $orang = $objUser->getUserByEmail();
 
 
-if($_SESSION['role'] == 3){
+if ($_SESSION['role'] == 3) {
     header("location: http://localhost/websocket/web-chat-room/frontend/pages");
 }
 
@@ -32,7 +32,7 @@ $acceptances = $acc->getApprove();
 
 // foreach($mentors as $mentor){
 //     echo $mentor['name']; echo '<br>';
-    
+
 // }
 
 
@@ -73,7 +73,7 @@ $acceptances = $acc->getApprove();
             }
         }
     </script>
-      <style>
+    <style>
         .sidebar #username_logo {
             display: none;
         }
@@ -196,12 +196,12 @@ $acceptances = $acc->getApprove();
 
 
         }
-    </style
+    </style>
 
 </head>
 
 <body>
-<div class="responsive-top p-5">
+    <div class="responsive-top p-5">
         <div class="container flex flex-column justify-between mt-4 mb-4">
             <img class="w-[280px] logo-smk1" src="../src/code.svg" alt="Logo SMK">
             <img src="Img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer" id="btnToggle2">
@@ -236,21 +236,9 @@ $acceptances = $acc->getApprove();
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 hover:bg-cream text-dark-green hover:text-white">
-                                <img class="w-5" src="./Img/icons/discussion_icon.svg" alt="Forum Icon">
-                                <p class="font-semibold">Forum Dicussion</p>
-                            </a>
-                        </li>
-                        <li>
                             <a href="" class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 hover:bg-cream text-dark-green hover:text-white">
                                 <img class="w-5" src="./Img/icons/schedule_icon.svg" alt="Schedule Icon">
                                 <p class="font-semibold">Schedule</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 hover:bg-cream text-dark-green hover:text-white">
-                                <img class="w-5" src="./Img/icons/attendance_icon.svg" alt="Attendance Icon">
-                                <p class="font-semibold">Attendance</p>
                             </a>
                         </li>
                         <li>
@@ -320,15 +308,21 @@ $acceptances = $acc->getApprove();
             <div class="bg-white w-full h-[50px] flex content-center px-10  rounded-xl">
                 <ul class="flex items-center gap-x-8">
                     <li class="text-dark-green text-cream border-b-4 border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
-                        <a href="#"><p>Session</p></a>
-                        
+                        <a href="">
+                            <p>Session</p>
+                        </a>
+
                     </li>
-                    <a href="http://localhost/websocket/frontend/pages/mentor.php"><li class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
-                         Booking 
-                    </li></a>   
-                    <a href="http://localhost/websocket/frontend/pages/mentor_set_schedule.php"><li class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
-                        <p>Add Schedule</p>
-                    </li></a>
+                    <a href="mentor.php">
+                        <li class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
+                            Booking
+                        </li>
+                    </a>
+                    <a href="mentor_set_schedule.php">
+                        <li class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
+                            <p>Add Schedule</p>
+                        </li>
+                    </a>
                 </ul>
             </div>
             <div>
@@ -349,30 +343,50 @@ $acceptances = $acc->getApprove();
                             <th class="border-b text-center px-4 py-2">Keterangan</th>
                     </thead>
                     <tbody>
-                        <?php foreach($acceptances as $acceptance){ ?>
+                        <?php foreach ($acceptances as $acceptance) { ?>
                             <tr>
-                            <td class="border-b px-4 py-2"><?= $acceptance['name'] ?></td>
-                            <td class="border-b px-4 py-2 text-center"><?= $acceptance['time'] ?></td>
-                            <td class="border-b px-4 py-2 text-center"><?= $acceptance['topic'] ?></td>
-                            <td class="border-b px-4 py-2 text-center">
-                                    <?php if($acceptance['status'] == 'disable') { ?>
+                                <td class="border-b px-4 py-2"><?= $acceptance['name'] ?></td>
+                                <td class="border-b px-4 py-2 text-center"><?= $acceptance['time'] ?></td>
+                                <td class="border-b px-4 py-2 text-center"><?= $acceptance['topic'] ?></td>
+                                <td class="border-b px-4 py-2 text-center">
+                                    <?php if ($acceptance['status'] == 'disable') { ?>
                                         <button type="button" class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 mb-2 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="changeStatus(<?= $acceptance['acceptance_id'] ?>, 'approve')">Approve</button>
-                                        <button type="button" class="text-red-700 ml-1 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 " onclick="changeStatus(<?= $acceptance['acceptance_id'] ?>, 'reject')" >Not Approve</button>
-                                    <?php } elseif($acceptance['status'] == 'active') { ?>
-                                        <button disabled type="button" class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 mb-2 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="changeStatus(<?= $acceptance['acceptance_id'] ?>)">Approved</button>
+                                        <button type="button" class="text-red-700 ml-1 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 " onclick="changeStatus(<?= $acceptance['acceptance_id'] ?>, 'reject')">Not
+                                            Approve</button>
+                                    <?php } elseif ($acceptance['status'] == 'active') { ?>
+                                        <div class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 rounded-lg text-sm flex text-center py-2 px-4 md:w-3/4 mx-auto">
+                                            <div class="md:ml-5 text-green-500 bg-green-100 rounded-lg">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                            <div class="ml-2 md:ml-6 text-sm font-medium text-white">Approved
+                                            </div>
+                                        </div>
                                     <?php } else { ?>
-                                        <button disabled type="button" class="text-red-700 ml-1 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Rejected</button>
+                                        <div class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 rounded-lg text-sm flex text-center py-2 px-4 md:w-3/4 mx-auto">
+                                            <div class="md:ml-5 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                            <div class="ml-2 md:ml-6 text-sm font-medium text-white">
+                                                Reject
+                                            </div>
+                                        </div>
                                     <?php } ?>
-                            </td>
-                            <td class="border-b px-4 py-2 text-center">
-                       
-                                    <?php if($acceptance['status'] == 'active') { ?>
-                                        <a href="http://localhost/websocket/group_chat.php"><button type="button" class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Konsultasi</button></a>
+                                </td>
+                                <td class="border-b px-4 py-2 text-center">
+
+                                    <?php if ($acceptance['status'] == 'active') { ?>
+                                        <a href="http://localhost/websocket/web-chat-room/group_chat.php"><button type="button" class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Konsultasi</button></a>
                                     <?php } else { ?>
                                         <p>Reject</p>
                                     <?php } ?>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         <?php } ?>
 
                     </tbody>
@@ -393,10 +407,11 @@ $acceptances = $acc->getApprove();
         btnToggle.onclick = function() {
             sidebar.classList.toggle('in-active');
         }
-         btnToggle2.onclick = function() {
+        btnToggle2.onclick = function() {
             sidebar.classList.toggle('in-active');
         }
     </script>
 
 </body>
+
 </html>

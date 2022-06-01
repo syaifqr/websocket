@@ -3,7 +3,7 @@ session_start();
 
 require '../../db/Acceptance.php';
 
-if($_SESSION['role'] == 2){
+if ($_SESSION['role'] == 2) {
     header("location: http://localhost/websocket/web-chat-room/frontend/pages/mentor.php");
 }
 
@@ -50,134 +50,134 @@ $acception = $objAccept->getDataByIdStudent($_SESSION['id']);
         }
     </script>
     <style>
-    .sidebar #username_logo {
-        display: none;
-    }
-
-    #profil_image {
-        display: none !important;
-    }
-
-    .responsive-top {
-        display: none;
-    }
-
-    .active {
-        color: #DDB07F !important;
-        border-bottom: solid 4px #DDB07F;
-    }
-
-    .in-active {
-        width: 80px !important;
-        padding: 20px 15px !important;
-        transition: .5s ease-in-out;
-    }
-
-    .in-active ul li p {
-        display: none !important;
-    }
-
-    .in-active ul li a {
-        padding: 15px !important;
-    }
-
-    .in-active h2,
-    .in-active h4,
-    .in-active .logo-smk {
-        display: none !important;
-    }
-
-    .hidden {
-        display: none !important;
-    }
-
-    .sidebar {
-        transition: .5s ease-in-out;
-    }
-
-    @media screen and (max-width: 414px) {
-        .responsive-top {
-            display: block;
+        .sidebar #username_logo {
+            display: none;
         }
 
         #profil_image {
-            display: flex !important;
-        }
-
-        .logo-smk {
             display: none !important;
         }
 
-        .assignment-table th,
-        .assignment-table td {
-            font-size: 9px;
+        .responsive-top {
+            display: none;
         }
 
-        .assignment-table img {
-            width: 45%;
-        }
-
-        .sidebar h2,
-        .sidebar h4,
-        .sidebar .logo-incareer,
-        .sidebar hr,
-        .sidebar #btnToggle {
-            display: none !important;
-        }
-
-        .sidebar #username_logo {
-            display: block;
-            margin: 0;
-        }
-
-        .breadcrumb ul {
-            font-size: .5rem;
-        }
-
-        .topic-title p {
-            font-size: 1.35rem;
-        }
-
-        .mentor-profile img {
-            width: 20%;
-        }
-
-        .mentor-profile p {
-            font-size: .5rem;
-        }
-
-        .direction p {
-            font-size: .5rem;
-        }
-
-        .tab-menu ul {
-            font-size: .6rem;
+        .active {
+            color: #DDB07F !important;
+            border-bottom: solid 4px #DDB07F;
         }
 
         .in-active {
             width: 80px !important;
-            padding: 10px 15px !important;
+            padding: 20px 15px !important;
             transition: .5s ease-in-out;
         }
 
+        .in-active ul li p {
+            display: none !important;
+        }
+
+        .in-active ul li a {
+            padding: 15px !important;
+        }
+
+        .in-active h2,
+        .in-active h4,
+        .in-active .logo-smk {
+            display: none !important;
+        }
+
+        .hidden {
+            display: none !important;
+        }
 
         .sidebar {
-            position: absolute;
-            z-index: 1;
+            transition: .5s ease-in-out;
         }
 
-        .rightbar {
-            margin-left: 80px;
+        @media screen and (max-width: 414px) {
+            .responsive-top {
+                display: block;
+            }
+
+            #profil_image {
+                display: flex !important;
+            }
+
+            .logo-smk {
+                display: none !important;
+            }
+
+            .assignment-table th,
+            .assignment-table td {
+                font-size: 9px;
+            }
+
+            .assignment-table img {
+                width: 45%;
+            }
+
+            .sidebar h2,
+            .sidebar h4,
+            .sidebar .logo-incareer,
+            .sidebar hr,
+            .sidebar #btnToggle {
+                display: none !important;
+            }
+
+            .sidebar #username_logo {
+                display: block;
+                margin: 0;
+            }
+
+            .breadcrumb ul {
+                font-size: .5rem;
+            }
+
+            .topic-title p {
+                font-size: 1.35rem;
+            }
+
+            .mentor-profile img {
+                width: 20%;
+            }
+
+            .mentor-profile p {
+                font-size: .5rem;
+            }
+
+            .direction p {
+                font-size: .5rem;
+            }
+
+            .tab-menu ul {
+                font-size: .6rem;
+            }
+
+            .in-active {
+                width: 80px !important;
+                padding: 10px 15px !important;
+                transition: .5s ease-in-out;
+            }
+
+
+            .sidebar {
+                position: absolute;
+                z-index: 1;
+            }
+
+            .rightbar {
+                margin-left: 80px;
+            }
+
+
         }
-
-
-    }
     </style>
 
 </head>
 
 <body>
-<div class="responsive-top p-5">
+    <div class="responsive-top p-5">
         <div class="container flex flex-column justify-between mt-4 mb-4">
             <img class="w-[280px] logo-smk1" src="../src/code.svg" alt="Logo SMK">
             <img src="Img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer" id="btnToggle2">
@@ -190,13 +190,11 @@ $acception = $objAccept->getDataByIdStudent($_SESSION['id']);
             <div class="flex flex-col gap-y-6">
                 <!-- Header -->
                 <div class="flex items-center space-x-4 px-2">
-                    <img src="Img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer"
-                        id="btnToggle">
+                    <img src="Img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer" id="btnToggle">
                     <img class="logo-smk -translate-x-6 " src="../src/code.svg" alt="Logo SMK">
                 </div>
 
                 <hr class="border-[1px] border-opacity-50 border-[#93BFC1]">
-
 
                 <!-- List Menus -->
                 <div>
@@ -214,21 +212,9 @@ $acception = $objAccept->getDataByIdStudent($_SESSION['id']);
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 hover:bg-cream text-dark-green hover:text-white">
-                                <img class="w-5" src="./Img/icons/discussion_icon.svg" alt="Forum Icon">
-                                <p class="font-semibold">Forum Dicussion</p>
-                            </a>
-                        </li>
-                        <li>
                             <a href="" class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 hover:bg-cream text-dark-green hover:text-white">
                                 <img class="w-5" src="./Img/icons/schedule_icon.svg" alt="Schedule Icon">
                                 <p class="font-semibold">Schedule</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 hover:bg-cream text-dark-green hover:text-white">
-                                <img class="w-5" src="./Img/icons/attendance_icon.svg" alt="Attendance Icon">
-                                <p class="font-semibold">Attendance</p>
                             </a>
                         </li>
                         <li>
@@ -239,24 +225,10 @@ $acception = $objAccept->getDataByIdStudent($_SESSION['id']);
                         </li>
                         <!-- Dropdown -->
                         <li>
-                            <button type="button" class="flex items-center gap-x-4 h-[50px] w-full rounded-xl px-4 bg-cream text-base font-normal text-gray-900 transition duration-75 group " aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+                            <a href="" class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 bg-cream">
                                 <img class="w-5" src="./Img/icons/consult_icon.svg" alt="Consult Icon">
-                                <span class="flex-1 text-left whitespace-nowrap text-white font-semibold" sidebar-toggle-item>Consult</span>
-                                <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                </svg>
-                            </button>
-                            <ul id="dropdown-example" class="hidden py-2 space-y-2">
-                                <li>
-                                    <a href="#" class=" text-cream  border-cream
-                                    flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Status</a>
-                                </li>
-                                <li>
-                                    <a href="index.php" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Booking</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
+                                <p class="text-white font-semibold">Consult</p>
+                            </a>
                         </li>
                         <!-- End Dropdown -->
                     </ul>
@@ -315,7 +287,10 @@ $acception = $objAccept->getDataByIdStudent($_SESSION['id']);
                     <li class="text-dark-green text-cream border-b-4 border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
                         <p>Status</p>
                     </li>
-                    <a href="index.php"><li class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">Booking</li></a>
+                    <a href="index.php">
+                        <li class="text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
+                            Booking</li>
+                    </a>
                 </ul>
             </div>
 
@@ -337,26 +312,26 @@ $acception = $objAccept->getDataByIdStudent($_SESSION['id']);
                             <th class="border-b text-left px-4 py-2">Nama Mentor</th>
                             <th class="border-b text-center px-4 py-2">Tanggal</th>
                             <th class="border-b text-center px-4 py-2">Jam</th>
-                            <th class="border-b text-center px-4 py-2">Status</th> 
+                            <th class="border-b text-center px-4 py-2">Status</th>
                             <th class="border-b text-center px-4 py-2">Keterangan</th>
                     </thead>
                     <tbody>
 
-                        <?php foreach($acception as $key) : ?>
+                        <?php foreach ($acception as $key) : ?>
                             <tr>
-                                <?php 
-                                
-                                    $time = explode(' ', $key['time']);
+                                <?php
 
-                                    $date = $time[0];
+                                $time = explode(' ', $key['time']);
 
-                                    $clock = $time[1];
-                                    
+                                $date = $time[0];
+
+                                $clock = $time[1];
+
                                 ?>
 
-                                <?php 
-                                
-                                $response = json_decode(file_get_contents('https://i0ifhnk0.directus.app/items/user?filter={"user_id":"' .$key['user_id'].'"}'), true);
+                                <?php
+
+                                $response = json_decode(file_get_contents('https://i0ifhnk0.directus.app/items/user?filter={"user_id":"' . $key['user_id'] . '"}'), true);
 
                                 ?>
 
@@ -364,39 +339,39 @@ $acception = $objAccept->getDataByIdStudent($_SESSION['id']);
                                 <td class="border-b px-4 py-2 text-center"><?= $date ?></td>
                                 <td class="border-b px-4 py-2 text-center"><?= $clock ?></td>
                                 <td class="border-b px-4 py-2 text-center">
-                                    <?php if($key['status'] == 'reject'){ ?>
-                                        <div class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 rounded-lg text-sm flex text-center py-2 px-4 w-3/4 mx-auto">
-                                        <div class="ml-5 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200 rounded-lg">
-                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z">
-                                                </path>
-                                            </svg>
+                                    <?php if ($key['status'] == 'reject') { ?>
+                                        <div class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 rounded-lg text-sm flex text-center py-2 px-4 md:w-3/4 mx-auto">
+                                            <div class="md:ml-5 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                            <div class="ml-2 md:ml-6 text-sm font-medium text-white">
+                                                Reject
+                                            </div>
                                         </div>
-                                        <div class="ml-6 text-sm font-medium text-white">
-                                            Reject
-                                        </div>
-                                    </div>
-                                    <?php }else if($key['status'] == 'active') { ?>
-                                        <div class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 rounded-lg text-sm flex text-center py-2 px-4 w-3/4 mx-auto">
-                                            <div class="ml-5 text-green-500 bg-green-100 rounded-lg">
+                                    <?php } else if ($key['status'] == 'active') { ?>
+                                        <div class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 rounded-lg text-sm flex text-center py-2 px-4 md:w-3/4 mx-auto">
+                                            <div class="md:ml-5 text-green-500 bg-green-100 rounded-lg">
                                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
                                                     </path>
                                                 </svg>
                                             </div>
-                                            <div class="ml-6 text-sm font-medium text-white">Approved
+                                            <div class="ml-2 md:ml-6 text-sm font-medium text-white">Approved
                                             </div>
                                         </div>
-                                    <?php }else { ?>
+                                    <?php } else { ?>
                                         disable
                                     <?php } ?>
 
                                 </td>
                                 <td class="border-b px-4 py-2 text-center">
-                                    <?php if($key['status'] == 'active'){ ?>
-                                        <a href="http://localhost/websocket/group_chat.php">
-                                        <button type="button" class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Konsultasi</button></a>
-                                    <?php } else {?>
+                                    <?php if ($key['status'] == 'active') { ?>
+                                        <a href="../../group_chat.php">
+                                            <button type="button" class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Konsultasi</button></a>
+                                    <?php } else { ?>
                                         <p>-</p>
                                     <?php } ?>
                                 </td>
@@ -406,18 +381,22 @@ $acception = $objAccept->getDataByIdStudent($_SESSION['id']);
                 </table>
             </div>
 
-            <div>
-                <button type="button" class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
-                    <svg class="w-6 h-5 mr-2 -ml-1" viewBox="0 0 2405 2501" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- <div>
+                <button type="button"
+                    class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2">
+                    <svg class="w-6 h-5 mr-2 -ml-1" viewBox="0 0 2405 2501" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_1512_1323)">
-                            <svg class="w-6 h-6 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path>
+                            <svg class="w-6 h-6 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path>
                             </svg>
                         </g>
                     </svg>
                     Kembali
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
     </div>
@@ -434,8 +413,8 @@ $acception = $objAccept->getDataByIdStudent($_SESSION['id']);
             sidebar.classList.toggle('in-active');
         }
         btnToggle2.onclick = function() {
-        sidebar.classList.toggle('in-active');
-    }
+            sidebar.classList.toggle('in-active');
+        }
     </script>
 
 </body>
