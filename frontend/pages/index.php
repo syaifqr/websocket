@@ -209,7 +209,7 @@ $user = $objUser->getUserByEmail();
 <body>
     <div class="responsive-top p-5">
         <div class="container flex flex-column justify-between mt-4 mb-4">
-            <img class="w-[220px] logo-smk1" src="../src/logo_lumintu.png" alt="Logo SMK">
+            <img class="w-[150px] logo-smk1" src="../src/logo_lumintu.png" alt="Logo SMK">
             <img src="Img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer" id="btnToggle2">
         </div>
     </div>
@@ -268,7 +268,7 @@ $user = $objUser->getUserByEmail();
             <div>
                 <ul class="flex flex-col ">
                     <li>
-                        <a href="#" class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 hover:bg-cream text-dark-green hover:text-white">
+                        <a onclick="javascript:tutorial()" class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 hover:bg-cream text-dark-green hover:text-white">
                             <img class="w-5" src="./Img/icons/help_icon.svg" alt="Help Icon">
                             <p class="font-semibold">Bantuan</p>
                         </a>
@@ -461,8 +461,12 @@ $user = $objUser->getUserByEmail();
 
 
     <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script>
-        // introJs().start();
+
+    function tutorial(){
         introJs().setOptions({
             steps: [{
                     title: 'Selamat Datang',
@@ -487,8 +491,24 @@ $user = $objUser->getUserByEmail();
             ],
             showProgress: true,
             showBullets: false,
-            disableInteraction: true
-        }).start();
+            disableInteraction: true,
+            showStepNumbers: true,
+            exitOnEsc: false
+        }).start()};
+        var name = 'IntroJS';
+        var value = localStorage.getItem(name) || $.cookie(name);
+        var func = function() {
+            if (Modernizr.localstorage) {
+                localStorage.setItem(name, 1)
+            } else {
+                $.cookie(name, 1, {
+                    expires: 365
+                });
+            }
+        };
+        if (value == null) {
+            intro.start().oncomplete(func).onexit(func);
+        };
     </script>
     <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
