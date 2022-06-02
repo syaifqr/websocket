@@ -268,7 +268,7 @@ $user = $objUser->getUserByEmail();
             <div>
                 <ul class="flex flex-col ">
                     <li>
-                        <a onclick="javascript:tutorial()" class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 hover:bg-cream text-dark-green hover:text-white">
+                        <a class="flex items-center gap-x-4 h-[50px] rounded-xl px-4 hover:bg-cream text-dark-green hover:text-white">
                             <img class="w-5" src="./Img/icons/help_icon.svg" alt="Help Icon">
                             <p class="font-semibold">Bantuan</p>
                         </a>
@@ -320,7 +320,6 @@ $user = $objUser->getUserByEmail();
                 <ul class="flex items-center gap-x-8">
                     <a href="daftarRequest.php">
                         <li class="status text-dark-green hover:text-cream hover:border-b-4 hover:border-cream h-[50px] flex items-center font-semibold  cursor-pointer">
-                            <!-- data-title="Status" data-intro="Klik Card untuk mengajukan konsultasi" -->
                             <p>Status</p>
 
                         </li>
@@ -465,9 +464,10 @@ $user = $objUser->getUserByEmail();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script>
+        
+        const intro = introJs();
 
-    function tutorial(){
-        introJs().setOptions({
+        intro.setOptions({
             steps: [{
                     title: 'Selamat Datang',
                     intro: 'Hallo Codetion👋'
@@ -494,7 +494,9 @@ $user = $objUser->getUserByEmail();
             disableInteraction: true,
             showStepNumbers: true,
             exitOnEsc: false
-        }).start()};
+        })
+
+        
         var name = 'IntroJS';
         var value = localStorage.getItem(name) || $.cookie(name);
         var func = function() {
